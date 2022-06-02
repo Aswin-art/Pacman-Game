@@ -593,10 +593,7 @@ class EventHandler{
                     game.pacman.move()
                     break;
                 case 'Enter':
-                    document.querySelector('.win-screen').style.opacity = 0
-                    document.querySelector('.gameover-screen').style.opacity = 0
-                    playAnimate = true
-                    game.reset()
+                    restart(game)
                     break;
                 case 'Escape':
                     if(game.state != state.PAUSE){
@@ -656,13 +653,15 @@ const state = {
 // Game Class
 class Game{
     constructor(){
-        this.reset()
+        this.boundaries = []
+        this.ghosts = []
+        this.pellets = []
+        this.powerUps = []
         this.state = state.RUNNING
+        this.reset()
     }
 
     reset(){
-        this.state = state.RUNNING
-
         // Declarate time for eat ghost
         this.time = 0
 
@@ -853,6 +852,13 @@ const player = document.getElementById('input')
 const menu = document.getElementById('menu-screen')
 const button = document.getElementById('btn')
 let playAnimate = true
+
+function restart(game){
+    document.querySelector('.win-screen').style.opacity = 0
+    document.querySelector('.gameover-screen').style.opacity = 0
+    playAnimate = true
+    game.reset()
+}
 
 function animate(){
     if(playAnimate){
