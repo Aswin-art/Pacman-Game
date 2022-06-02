@@ -849,6 +849,9 @@ class Game{
 const game = new Game()
 
 let score = document.getElementById('score')
+const player = document.getElementById('input')
+const menu = document.getElementById('menu-screen')
+const button = document.getElementById('btn')
 let playAnimate = true
 
 function animate(){
@@ -861,4 +864,12 @@ function animate(){
     }
 }
 
-requestAnimationFrame(animate)
+function startPlaying(){
+    if(player.value !== ''){
+        localStorage.setItem('name', player.value)
+        menu.style.opacity = 0
+        requestAnimationFrame(animate)
+    }
+}
+
+button.addEventListener('click', startPlaying)

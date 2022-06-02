@@ -57,12 +57,38 @@
             opacity: 0;
         }
 
+        #menu-screen{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            opacity: 1;
+            z-index: 99;
+        }
+
         h1{
             margin: 0;
+        }
+
+        #btn{
+            margin: 5px;
+        }
+
+        #btn:hover{
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <div id="menu-screen">
+        <h1>Pacman Game</h1>
+        <input id="input" type="text" placeholder="Name...">
+        <button id="btn">Play</button>
+    </div>
     <div class="pause-screen">
         <h1>GAME PAUSED</h1>
         <h1>press 'esc' to play</h1>
